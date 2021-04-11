@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+*{
+	box-sizing:border-box;
+	list-style-type:none;
+	font-family: 'Ubuntu Mono', monospace;
+	box-sizing: border-box;
+}
+body {
+	display:flex;
+	justify-content: center;
+	min-height: 100vh;
+	background-color: #F5F3F4;
+}
+.content {
+	margin-top:50px;
+}
+.choosedRestaurant{
+/*	text-align: center;*/
+	font-size:30px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.chooseBtn{
+	padding:20px 30px;
+	font-size:16px;
+	background-color:#D3D3D3;
+	border:none;
+	outline:none;
+	cursor: pointer;
+	transition-duration: 0.3s;
+}
+.chooseBtn:hover {
+	color:#fff;
+	background-color: #EF233C;
+}
+.rest-key{
+	transition-duration: 0.3s;
+	cursor:pointer;
+}
+.rest-key:hover {
+	color:#D90429;
+}
+.invisible {
+	display: none;
+}
+.visible {
+	display:block;
+}
+.container-items{
+	overflow:hidden;
+	width:1050px;
+	display:flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.item{
+	margin:5px;
+	width:340px;
+	padding:15px;
+	background-color:#2B2D42;
+}
+.additional-in{
+	display: flex;
+	justify-content: space-between;
+}
+.item h2 {
+	color:#fff;
+}
+.item h3 {
+	color:#8D99AE;
+}

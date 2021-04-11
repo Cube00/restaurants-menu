@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import FoodItems from './components/foodItems.js';
+import {data} from './data';
+import './main.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App =() => {
+	const restaurants = data.map((e)=>{ return e.restaurant });
+	const [visible, setVisible] = useState(false);
+	const [restaurantName, seTrestaurantName] = useState('Restaurant Name');
+
+	const chooseRestaurant = ()=>{
+		setVisible(true);
+		if(visible===true){
+			setVisible(false);
+		}
+	}
+
+	const chooseCat = (e) =>{
+		setVisible(false);
+		seTrestaurantName(e);
+	}
+
+	return <>
+		<div className="content">
+			<button className="chooseBtn" onClick={()=>chooseRestaurant()}>
+				Choose restaurant
+			</button>
+			<div className={!visible ? 'block invisible' : 'block visible'}>
+				<ul>
+					{restaurants.map((e)=>{
+						return <li className="rest-key" key={e} onClick={()=>chooseCat(e)}>{e}</li>
+					})}
+				</ul>
+			</div>
+			<div className='choosedRestaurant'>{restaurantName}</div>
+		</div>
+
+		<div className='container-items'>
+			<FoodItems data={data} restaurantName={restaurantName} />
+		</div>
+	</>;
 }
+
 
 export default App;
